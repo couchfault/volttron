@@ -223,13 +223,6 @@ def install_rabbit(rmq_install_dir):
 
 def main(argv=sys.argv):
     """Script entry point."""
-
-    # Refuse to run as root
-    if not getattr(os, 'getuid', lambda: -1)():
-        sys.stderr.write('%s: error: refusing to run as root to prevent '
-                         'potential damage.\n' % os.path.basename(argv[0]))
-        sys.exit(77)
-
     # Python3 for life!
     if sys.version_info.major < 3 or sys.version_info.minor < 6:
         sys.stderr.write('error: Python >= 3.6 is required\n')
